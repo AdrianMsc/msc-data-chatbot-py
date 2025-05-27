@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# VSCode settings (si usas VSCode)
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Python files that store credentials
+*.env
+
+# Logs
+*.log
+
+# Vercel output (por si alguna vez genera carpetas temporales)
+.vercel/
+
+# Pytest / coverage
+htmlcov/
+.tox/
+.nox/
+coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+test-results.xml
+
+# MyPy
+.mypy_cache/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
