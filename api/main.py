@@ -15,6 +15,11 @@ SQL_PATTERN = re.compile(
     re.IGNORECASE
 )
 
+
+@app.get("/")
+async def root():
+    return "service working"
+
 @app.post("/response")
 async def responder(request: Request):
     try:
@@ -46,8 +51,5 @@ async def responder(request: Request):
         "timestamp": timestamp
     }
 
-@app.get("/")
-async def root():
-    return "service working"
 
 asgi_app = app
