@@ -8,7 +8,7 @@ app = FastAPI()
 
 # ✔️ Modelo actualizado con id y sender
 class InputText(BaseModel):
-    id: str
+    id: int
     sender: str
     text: str
 
