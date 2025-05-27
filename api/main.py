@@ -8,8 +8,8 @@ class InputText(BaseModel):
 
 @app.post("/respuesta")
 def responder(input_data: InputText):
-    respuesta = input_data.text + " | Respuesta predeterminada"
-    return {"respuesta": respuesta}
+    return {"respuesta": input_data.text + " | Respuesta predeterminada"}
 
-# Vercel requiere que exportemos la variable como "handler"
-handler = app
+# Adaptador para Vercel
+# Usa `asgi_app` como punto de entrada
+asgi_app = app
