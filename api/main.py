@@ -18,7 +18,9 @@ SQL_PATTERN = re.compile(
 
 @app.get("/")
 async def root():
-    return "service working"
+    return {
+      "response":"Service working"
+    }
 
 @app.post("/response")
 async def responder(request: Request):
