@@ -9,17 +9,25 @@ app = FastAPI()
 class InputText(BaseModel):
     text: str
 
-# Patrón muy básico para detectar palabras SQL comunes (puedes ampliar según necesites)
+# SQL PATTERN DETECTION
 SQL_PATTERN = re.compile(
-    r"(select|insert|update|delete|drop|truncate|--|;|\/\*|\*\/|union|alter|create|exec|declare)\b",
-    re.IGNORECASE
+    r"""
+    (
+        (select\s.+\sfrom\s.+) |                     # SELECT ... FROM ...
+        (insert\s+into\s.+\svalues\s*\(.+\)) |      # INSERT INTO ... VALUES (...)
+        (update\s+.+\sset\s.+) |                     # UPDATE ... SET ...
+        (delete\s+from\s.+)                          # DELETE FROM ...
+    )
+    """,
+    re.IGNORECASE | re.VERBOSE | re.DOTALL
 )
+
 
 
 @app.get("/")
 async def root():
     return {
-      "response":"Service working"
+      "response":"Hello chickens!"
     }
 
 @app.post("/response")
