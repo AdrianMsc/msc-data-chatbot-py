@@ -6,9 +6,9 @@ app = FastAPI()
 class InputText(BaseModel):
     text: str
 
-@app.post("/respuesta")
+@app.post("/response")
 def responder(input_data: InputText):
-    return {"respuesta": input_data.text + " | Respuesta predeterminada"}
+    return {"response": input_data.text + " | Default response"}
 
 # Adaptador para Vercel
 # Usa `asgi_app` como punto de entrada
